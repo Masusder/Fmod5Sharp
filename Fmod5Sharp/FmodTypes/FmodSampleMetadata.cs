@@ -32,7 +32,7 @@ namespace Fmod5Sharp.FmodTypes
 				1 => 2,
 				2 => 6,
 				3 => 8,
-				_ => throw new("Number of channels not supported")
+				_ => 0
 			};
 			
 			IsStereo = NumChannels == 2;
