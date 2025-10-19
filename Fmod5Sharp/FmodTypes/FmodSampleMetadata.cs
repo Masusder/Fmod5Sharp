@@ -4,7 +4,8 @@ using Fmod5Sharp.Util;
 
 namespace Fmod5Sharp.FmodTypes
 {
-	public class FmodSampleMetadata : IBinaryReadable
+    //Can be verified against "FMOD::CodecFSB5::decodeSubSoundHeader" in fmod.dll
+    public class FmodSampleMetadata : IBinaryReadable
 	{
 		internal bool HasAnyChunks;
 		internal uint FrequencyId;
