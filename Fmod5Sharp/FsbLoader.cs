@@ -36,6 +36,8 @@ namespace Fmod5Sharp
                 return null;
             }
 
+            long dataStartOffset = header.SizeOfThisHeader + header.SizeOfNameTable + header.SizeOfSampleHeaders;
+
             List<FmodSample> samples = new(header.Samples.Count);
             for (var i = 0; i < header.Samples.Count; i++)
             {
@@ -50,7 +52,7 @@ namespace Fmod5Sharp
                 }
 
                 byte[] sampleData = new byte[lastByteOfSample - firstByteOfSample];
-                stream.Position = firstByteOfSample;
+                stream.Position = dataStartOffset + firstByteOfSample;
                 stream.Read(sampleData, 0, sampleData.Length);
 
                 var sample = new FmodSample(sampleMetadata, sampleData);
